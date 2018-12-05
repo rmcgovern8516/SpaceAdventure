@@ -42,17 +42,11 @@ public class Runner {
         int y3 = (int)(Math.random()*building.length);
         building[x3][y3] = new Star(x3, y3);
 
-
-        //Create a random location for the enemyShip.
-        int x5 = (int)(Math.random()*building.length);
-        int y5 = (int)(Math.random()*building.length);
-        Ship enemyShip = new Ships.Ship("Iago","Roderigo",x5,y5);
-
-
-        //Create a random location for the Firefly.
-        int x6 = (int)(Math.random()*building.length);
-        int y6 = (int)(Math.random()*building.length);
-        Ship Firefly = new Ships.Ship("Othello","Desdemona",x6,y6);
+        //Loc of ship 1
+        int x4 = (int)(Math.random()*building.length);
+        int y4= (int)(Math.random()*building.length);
+        Ship enemyShip = new Ship("Iago","Roderigo",x4, y4);
+        building[x4][y4].enterRoom(enemyShip);
 
 
 
@@ -69,9 +63,11 @@ public class Runner {
                 System.out.println("Your coordinates: row = " + myShip.getxLoc() + " col = " + myShip.getyLoc());
 
             }
+
             else {
                 System.out.println("You're on the edge of the solar system. Please choose a valid move.");
             }
+
 
 
         }
