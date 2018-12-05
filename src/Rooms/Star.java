@@ -1,7 +1,7 @@
 package Rooms;
 
 import Game.Runner;
-import People.Person;
+import Ships.Ship;
 
 public class Star extends Room
 {
@@ -16,7 +16,7 @@ public class Star extends Room
      * @param x the Person entering
      */
     @Override
-    public void enterRoom(Person x) {
+    public void enterRoom(Ship x) {
 
         occupant = x;
         x.setxLoc(this.xLoc);

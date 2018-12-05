@@ -1,9 +1,9 @@
-package People;
+package Ships;
 
 /**
  * Person represents the player as they move through the game.
  */
-public class Person {
+public class Ship {
     String firstName;
     String familyName;
     int xLoc, yLoc;
@@ -25,7 +25,7 @@ public class Person {
         this.yLoc = yLoc;
     }
 
-    public Person (String firstName, String familyName, int xLoc, int yLoc)
+    public Ship (String firstName, String familyName, int xLoc, int yLoc)
     {
         this.firstName = firstName;
         this.familyName = familyName;

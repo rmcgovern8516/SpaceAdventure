@@ -1,6 +1,6 @@
 package Game;
 
-import People.Person;
+import Ships.Ship;
 import Rooms.Room;
 import Rooms.SpaceStation;
 import Rooms.GaseousPlanet;
@@ -43,17 +43,30 @@ public class Runner {
         building[x3][y3] = new Star(x3, y3);
 
 
+        //Create a random location for the enemyShip.
+        int x5 = (int)(Math.random()*building.length);
+        int y5 = (int)(Math.random()*building.length);
+        Ship enemyShip = new Ships.Ship("Iago","Roderigo",x5,y5);
+
+
+        //Create a random location for the Firefly.
+        int x6 = (int)(Math.random()*building.length);
+        int y6 = (int)(Math.random()*building.length);
+        Ship Firefly = new Ships.Ship("Othello","Desdemona",x6,y6);
+
+
+
         //Setup player 1 and the input scanner
-        Person player1 = new Person("FirstName", "FamilyName", 0,0);
-        building[0][0].enterRoom(player1);
+        Ship myShip = new Ship("FirstName", "FamilyName", 0,0);
+        building[0][0].enterRoom(myShip);
         Scanner in = new Scanner(System.in);
         while(gameOn)
         {
             System.out.println("Where would you like to move? (Choose U, D, R, L)");
             String move = in.nextLine();
-            if(validMove(move, player1, building))
+            if(validMove(move, myShip, building))
             {
-                System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                System.out.println("Your coordinates: row = " + myShip.getxLoc() + " col = " + myShip.getyLoc());
 
             }
             else {
@@ -72,7 +85,7 @@ public class Runner {
      * @param map the 2D array of rooms
      * @return
      */
-    public static boolean validMove(String move, Person p, Room[][] map)
+    public static boolean validMove(String move, Ships.Ship p, Room[][] map)
     {
         move = move.toLowerCase().trim();
         switch (move) {
@@ -128,6 +141,7 @@ public class Runner {
         }
         return true;
     }
+
     public static void gameOff()
     {
         gameOn = false;

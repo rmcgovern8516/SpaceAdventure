@@ -1,9 +1,9 @@
 package Rooms;
 
-import People.Person;
+import Ships.Ship;
 
 public class Room {
-    Person occupant;
+    Ship occupant;
     int xLoc,yLoc;
 
     public Room(int x, int y)
@@ -16,7 +16,7 @@ public class Room {
      * Method controls the results when a person enters this room.
      * @param x the Person entering
      */
-    public void enterRoom(Person x)
+    public void enterRoom(Ship x)
     {
         System.out.println("You've entered empty space.");
         occupant = x;
@@ -28,7 +28,7 @@ public class Room {
      * Removes the player from the room.
      * @param x
      */
-    public void leaveRoom(Person x)
+    public void leaveRoom(Ship x)
     {
         occupant = null;
     }
