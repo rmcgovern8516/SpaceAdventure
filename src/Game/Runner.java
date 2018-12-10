@@ -1,10 +1,8 @@
 package Game;
 
+import Rooms.*;
+import Game.Board;
 import Ships.Ship;
-import Rooms.Room;
-import Rooms.SpaceStation;
-import Rooms.GaseousPlanet;
-import Rooms.Star;
 
 import java.util.Scanner;
 
@@ -16,6 +14,10 @@ public class Runner {
     public static void main(String[] args)
     {
         Room[][] building = new Room[5][5];
+        String[][] face = new String[5][8];
+        Game.Board face1 = new Board(face);
+
+        face1.fill("X");
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -31,22 +33,31 @@ public class Runner {
         int x = (int)(Math.random()*building.length);
         int y = (int)(Math.random()*building.length);
         building[x][y] = new SpaceStation(x, y);
+        face1.edit("S",x,y);
 
         //Create a random location for the gaseous planet.
         int x2 = (int)(Math.random()*building.length);
         int y2 = (int)(Math.random()*building.length);
         building[x2][y2] = new GaseousPlanet(x2, y2);
+        face1.edit("G",x2,y2);
 
         //Create a random location for the star.
         int x3 = (int)(Math.random()*building.length);
         int y3 = (int)(Math.random()*building.length);
         building[x3][y3] = new Star(x3, y3);
+        face1.edit("*",x3,y3);
 
-        //Loc of ship 1
+        //Create a random location for the firefly.
         int x4 = (int)(Math.random()*building.length);
-        int y4= (int)(Math.random()*building.length);
-        Ship enemyShip = new Ship("Iago","Roderigo",x4, y4);
-        building[x4][y4].enterRoom(enemyShip);
+        int y4 = (int)(Math.random()*building.length);
+        building[x4][y4] = new Firefly(x4, y4);
+        face1.edit("F",x4,y4);
+
+        //Create a random location for the enemy ship.
+        int x5 = (int)(Math.random()*building.length);
+        int y5 = (int)(Math.random()*building.length);
+        building[x5][y5] = new EnemyShip(x5, y5);
+        face1.edit("E",x5,y5);
 
 
 
@@ -60,7 +71,8 @@ public class Runner {
             String move = in.nextLine();
             if(validMove(move, myShip, building))
             {
-                System.out.println("Your coordinates: row = " + myShip.getxLoc() + " col = " + myShip.getyLoc());
+
+                System.out.println(face1);
 
             }
 

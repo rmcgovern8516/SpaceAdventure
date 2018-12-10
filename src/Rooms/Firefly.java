@@ -3,10 +3,10 @@ package Rooms;
 import Game.Runner;
 import Ships.Ship;
 
-public class Star extends Room
+public class Firefly extends Room
 {
 
-    public Star(int x, int y) {
+    public Firefly(int x, int y) {
         super(x, y);
 
     }
@@ -21,8 +21,7 @@ public class Star extends Room
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You've hyper-warped into a star! You feel the heat rise 100 degrees a second, but you instantly warp out due to your amazing reflexes.");
-
+        System.out.println("You pass by the Docker-77, which is a shipping vessel. As the ship passes by you, it flashes its head lights as a simple hello.");
     }
 
 
