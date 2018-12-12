@@ -18,7 +18,7 @@ public class Room {
      */
     public void enterRoom(Ship x)
     {
-        System.out.println("You've moved.");
+        System.out.println("You're in empty space.");
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);

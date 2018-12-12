@@ -13,8 +13,9 @@ public class Runner {
 
     public static void main(String[] args)
     {
+        System.out.println("Welcome, captain. You can fly your ship around to the various events on the map. Any place with a '.' is a place already visited.");
         Room[][] building = new Room[5][5];
-        String[][] face = new String[5][8];
+        String[][] face = new String[5][5];
         Game.Board face1 = new Board(face);
 
         face1.fill("X");
@@ -62,7 +63,7 @@ public class Runner {
 
 
         //Setup player 1 and the input scanner
-        Ship myShip = new Ship("FirstName", "FamilyName", 0,0);
+        Ship myShip = new Ship("FirstName", "FamilyName", 0,-1);
         building[0][0].enterRoom(myShip);
         Scanner in = new Scanner(System.in);
         while(gameOn)
@@ -73,6 +74,7 @@ public class Runner {
             {
 
                 System.out.println(face1);
+                face1.edit(".",myShip.getyLoc(),myShip.getxLoc());
 
             }
 
