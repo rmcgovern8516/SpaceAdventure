@@ -65,6 +65,8 @@ public class Runner {
         //Setup player 1 and the input scanner
         Ship myShip = new Ship("FirstName", "FamilyName", 0,-1);
         building[0][0].enterRoom(myShip);
+        face1.edit(".",myShip.getyLoc(),myShip.getxLoc());
+        System.out.println(face1);
         Scanner in = new Scanner(System.in);
         while(gameOn)
         {
@@ -72,9 +74,9 @@ public class Runner {
             String move = in.nextLine();
             if(validMove(move, myShip, building))
             {
-
+                face1.edit(".",myShip.getxLoc(),myShip.getyLoc());
                 System.out.println(face1);
-                face1.edit(".",myShip.getyLoc(),myShip.getxLoc());
+
 
             }
 
