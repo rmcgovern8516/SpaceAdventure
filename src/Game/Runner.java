@@ -13,7 +13,7 @@ public class Runner {
 
     public static void main(String[] args)
     {
-        System.out.println("Welcome, captain. You can fly your ship around to the various events on the map. Any place with a '.' is a place already visited.");
+        System.out.println("Welcome, captain. You can fly your ship around to the various events on the map. Any place with a '.' is a place you've already visited.");
         Room[][] building = new Room[5][5];
         String[][] face = new String[5][5];
         Game.Board face1 = new Board(face);

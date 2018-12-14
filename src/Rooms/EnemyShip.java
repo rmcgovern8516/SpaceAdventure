@@ -29,18 +29,16 @@ public class EnemyShip extends Room
 
     public void enemyBattle()
     {
-        int myHealth = 10;
-        int enemyHealth = 3;
-        System.out.println("Type 'a' to attack, 'r' to run away, or 'n' to try to negotiate.");
+        System.out.println("Type 'a' to attack, 'w' to run away, or 'n' to try to negotiate.");
         Scanner input = new Scanner(System.in);
         String choice = input.nextLine();
         choice = choice.toLowerCase().trim();
         if (choice.equals("a"))
         {
-            int random = (int)(Math.random()*2);
-            if (random == 0 || random == 1)
+            int random = (int)(Math.random()*3);
+            if (random == 1)
             {
-                System.out.println("You successfully shot their ship! They were so scared they ran away until next time you meet them.");
+                System.out.println("You successfully shot their ship! Their ship exploded into smithereens.");
             }
             else
             {
@@ -50,13 +48,14 @@ public class EnemyShip extends Room
             }
 
         }
-        else if (choice.equals("r"))
+        else if (choice.equals("w"))
         {
             System.out.println("You successfully ran away!");
         }
         else if (choice.equals("n"))
         {
             System.out.println("You tried to negotiate, but they don't speak your language.");
+            enemyBattle();
         }
         else
         {
